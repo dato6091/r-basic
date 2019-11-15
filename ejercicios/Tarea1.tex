@@ -1,0 +1,330 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Tarea1},
+            pdfauthor={Daniel\_Torrejon},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Tarea1}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Daniel\_Torrejon}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{15/11/2019}
+
+
+\begin{document}
+\maketitle
+
+\hypertarget{tarea-1}{%
+\section{TAREA 1}\label{tarea-1}}
+
+\hypertarget{pregunta-1}{%
+\subsection{PREGUNTA 1:}\label{pregunta-1}}
+
+Si hubiéramos empezado a contar segundos a partir de las 12 campanadas
+que marcan el inicio de 2018, ¿a qué hora de qué día de qué año
+llegaríamos a los 250 millones de segundos? ¡Cuidado con los años
+bisiestos!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seg =}\StringTok{ }\DecValTok{250} \OperatorTok{*}\StringTok{ }\DecValTok{10}\OperatorTok{^}\DecValTok{6}
+\NormalTok{dias =}\StringTok{ }\NormalTok{seg}\OperatorTok{/}\NormalTok{(}\DecValTok{3600}\OperatorTok{*}\DecValTok{24}\NormalTok{)}
+\NormalTok{anyos =}\StringTok{ }\NormalTok{dias}\OperatorTok{/}\FloatTok{365.25}
+\NormalTok{anyos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] 7.922022
+\end{verbatim}
+
+Sabemos que han pasado 7 años, dos de los cuales serían bisiestos (2020
+y 2024), por lo tanto el año actual sería:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{anyo =}\StringTok{ }\DecValTok{2018} \OperatorTok{+}\StringTok{ }\DecValTok{7} \CommentTok{# = 2025}
+\end{Highlighting}
+\end{Shaded}
+
+7 años, en días serían:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dias_}\DecValTok{7}\NormalTok{_a =}\StringTok{ }\DecValTok{7} \OperatorTok{*}\StringTok{ }\DecValTok{365} \OperatorTok{+}\StringTok{ }\DecValTok{2} \CommentTok{# Añadimos dos días por los años bisiestos}
+\NormalTok{dias_}\DecValTok{7}\NormalTok{_a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2557
+\end{verbatim}
+
+Restamos los días transcurridos en 7 años al total de días
+transcurridos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dias_a2025 =}\StringTok{ }\NormalTok{dias }\OperatorTok{-}\StringTok{ }\NormalTok{dias_}\DecValTok{7}\NormalTok{_a}
+\NormalTok{dias_a2025}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] 336.5185
+\end{verbatim}
+
+Con lo que obtenemos el total de días transcurridos del año 2025:
+336,5185. Para obtener la fecha, restamos el total de días transcurridos
+a los días del año (365 al no ser bisiesto):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d =}\StringTok{ }\DecValTok{365} \OperatorTok{-}\StringTok{ }\NormalTok{dias_a2025}
+\NormalTok{d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] 28.48148
+\end{verbatim}
+
+Obtenemos que faltan 28,48 días para que finalice el año. Por lo tanto,
+como Diciembre tiene 31 días, estamos en Diciembre, concretamente en el
+día:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dia_act =}\StringTok{ }\DecValTok{31}\OperatorTok{-}\NormalTok{d}
+\NormalTok{dia_act =}\StringTok{ }\KeywordTok{floor}\NormalTok{(dia_act)}
+\NormalTok{dia_act}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] 2
+\end{verbatim}
+
+La fecha es el 02/12/2025.
+
+Para obtener la hora dividimos lo que sobra de la resta anterior:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resto =}\StringTok{ }\NormalTok{d }\OperatorTok{-}\StringTok{ }\DecValTok{28}
+\NormalTok{hora =}\StringTok{ }\NormalTok{resto }\OperatorTok{*}\StringTok{ }\DecValTok{24}
+\NormalTok{minuto =}\StringTok{ }\NormalTok{(hora}\OperatorTok{%%}\KeywordTok{floor}\NormalTok{(hora)) }\OperatorTok{*}\StringTok{ }\DecValTok{60}
+\NormalTok{segundo =}\StringTok{ }\NormalTok{(minuto}\OperatorTok{%%}\KeywordTok{floor}\NormalTok{(minuto)) }\OperatorTok{*}\StringTok{ }\DecValTok{60}
+\NormalTok{hora =}\StringTok{ }\KeywordTok{floor}\NormalTok{(hora)}
+\NormalTok{minuto =}\StringTok{ }\KeywordTok{floor}\NormalTok{(minuto)}
+\NormalTok{segundo =}\StringTok{ }\KeywordTok{floor}\NormalTok{(minuto)}
+\KeywordTok{print}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"La hora es"}\NormalTok{, hora, }\StringTok{":"}\NormalTok{, minuto, }\StringTok{":"}\NormalTok{ , segundo))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] "La hora es 11 : 33 : 33"
+\end{verbatim}
+
+\hypertarget{pregunta-2}{%
+\subsection{PREGUNTA 2:}\label{pregunta-2}}
+
+Cread una función que os resuelva una ecuación de primer grado (de la
+forma Ax+B=0). Es decir, vosotros tendréis que introducir como
+parámetros los coeficientes (en orden) y la función os tiene que
+devolver la solución. Por ejemplo, si la ecuación es 2x+4=0, vuestra
+función os tendría que devolver -2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res_ec =}\StringTok{ }\ControlFlowTok{function}\NormalTok{ (A, B, C)\{}
+\NormalTok{  resultado =}\StringTok{ }\NormalTok{C}\OperatorTok{-}\NormalTok{B}\OperatorTok{/}\NormalTok{A}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"La función a resolver es:"}\NormalTok{, A,}\StringTok{"* x +"}\NormalTok{, B, }\StringTok{"="}\NormalTok{, C))}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"El resultado es: x ="}\NormalTok{, resultado))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Probamos la función:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{res_ec}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] "La función a resolver es: 5 * x + 3 = 0"
+  [1] "El resultado es: x = -0.6"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{res_ec}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{18}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] "La función a resolver es: 7 * x + 4 = 18"
+  [1] "El resultado es: x = 17.4285714285714"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{res_ec}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] "La función a resolver es: 1 * x + 1 = 1"
+  [1] "El resultado es: x = 0"
+\end{verbatim}
+
+\hypertarget{pregunta-3}{%
+\subsection{PREGUNTA 3}\label{pregunta-3}}
+
+Dad una expresión para calcular 3e-π y a continuación, dad el resultado
+que habéis obtenido con R redondeado a 3 cifras decimales.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{exp1 =}\StringTok{ }\DecValTok{3}\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{pi)}
+\NormalTok{exp1 =}\StringTok{ }\KeywordTok{round}\NormalTok{(exp1, }\DataTypeTok{digits=}\DecValTok{3}\NormalTok{)}
+\NormalTok{exp1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1] 0.13
+\end{verbatim}
+
+Dad el módulo del número complejo (2+3i)\^{}2/(5+8i) redondeado a 3
+cifras decimales.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{complejo =}\StringTok{ }\NormalTok{(}\DecValTok{2}\OperatorTok{+}\NormalTok{3i)}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\NormalTok{(}\DecValTok{5}\OperatorTok{+}\NormalTok{8i)}
+\KeywordTok{round}\NormalTok{(complejo, }\DataTypeTok{digits =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.798+1.124i
+\end{verbatim}
+
+
+\end{document}

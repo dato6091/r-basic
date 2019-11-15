@@ -1,0 +1,123 @@
+---
+title: "Tarea1"
+author: "Daniel_Torrejon"
+date: "15/11/2019"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# TAREA 1
+
+## PREGUNTA 1: 
+Si hubiéramos empezado a contar segundos a partir de las 12 campanadas que marcan el inicio de 2018, ¿a qué hora de qué día de qué año llegaríamos a los 250 millones de segundos? ¡Cuidado con los años bisiestos!
+
+```{r comment= " "}
+seg = 250 * 10^6
+dias = seg/(3600*24)
+anyos = dias/365.25
+anyos
+```
+
+Sabemos que han pasado 7 años, dos de los cuales serían bisiestos (2020 y 2024), por lo tanto el año actual sería:
+
+```{r comment=" "}
+anyo = 2018 + 7 # = 2025
+```
+
+7 años, en días serían:
+
+```{r}
+dias_7_a = 7 * 365 + 2 # Añadimos dos días por los años bisiestos
+dias_7_a
+```
+
+Restamos los días transcurridos en 7 años al total de días transcurridos:
+
+```{r comment = " "}
+dias_a2025 = dias - dias_7_a
+dias_a2025
+```
+
+Con lo que obtenemos el total de días transcurridos del año 2025: 336,5185.
+Para obtener la fecha, restamos el total de días transcurridos a los días del año (365 al no ser bisiesto):
+
+```{r comment = " "}
+d = 365 - dias_a2025
+d
+```
+
+Obtenemos que faltan 28,48 días para que finalice el año. Por lo tanto, como Diciembre tiene 31 días, estamos en Diciembre, concretamente en el día:
+
+```{r comment = " "}
+dia_act = 31-d
+dia_act = floor(dia_act)
+dia_act
+```
+
+La fecha es el 02/12/2025.
+
+Para obtener la hora dividimos lo que sobra de la resta anterior:
+
+```{r comment = " "}
+resto = d - 28
+hora = resto * 24
+minuto = (hora%%floor(hora)) * 60
+segundo = (minuto%%floor(minuto)) * 60
+hora = floor(hora)
+minuto = floor(minuto)
+segundo = floor(minuto)
+print(paste("La hora es", hora, ":", minuto, ":" , segundo))
+```
+
+
+
+## PREGUNTA 2: 
+Cread una función que os resuelva una ecuación de primer grado (de la forma Ax+B=0). Es decir, vosotros tendréis que introducir como parámetros los coeficientes (en orden) y la función os tiene que devolver la solución. Por ejemplo, si la ecuación es 2x+4=0, vuestra función os tendría que devolver -2.
+
+```{r comment = " "}
+res_ec = function (A, B, C){
+  resultado = C-B/A
+  print(paste("La función a resolver es:", A,"* x +", B, "=", C))
+  print(paste("El resultado es: x =", resultado))
+}
+```
+
+Probamos la función:
+
+```{r comment= " "}
+res_ec(5, 3, 0)
+```
+
+```{r comment= " "}
+res_ec(7, 4, 18)
+```
+
+
+```{r comment= " "}
+res_ec(1, 1, 1)
+```
+
+
+## PREGUNTA 3
+Dad una expresión para calcular 3e-π y a continuación, dad el resultado que habéis obtenido con R redondeado a 3 cifras decimales.
+
+```{r comment= " "}
+exp1 = 3*exp(-pi)
+exp1 = round(exp1, digits=3)
+exp1
+```
+
+
+Dad el módulo del número complejo (2+3i)^2/(5+8i) redondeado a 3 cifras decimales.
+
+```{r}
+complejo = (2+3i)^2/(5+8i)
+round(complejo, digits = 3)
+```
+
